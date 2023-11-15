@@ -16,28 +16,29 @@
             android:id="@+id/cloudImg"
             android:layout_width="match_parent"
             android:layout_height="210dp"
+            android:alpha="0.7"
             android:src="@drawable/cloud"></ImageView>
 
         <TextView
             android:id="@+id/freshair"
             android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_marginTop="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
             android:alpha="0.8"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/bungeer"
             android:text="@string/sign_in"
             android:layout_centerHorizontal="true"
             android:textColor="@color/babypurple"
             android:textSize="60sp"
             android:layout_gravity="center"
-            android:textStyle="bold" />
+          />
 
         <ImageView
             android:id="@+id/houseImg"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/cloudImg"
-            android:alpha="0.4"
+            android:alpha="0.35"
             android:src="@drawable/house">
         </ImageView>
         <ImageView
@@ -141,7 +142,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:text="Lưu mật khẩu" />
+                android:text="@string/save_account" />
 
         </RelativeLayout>
     </RelativeLayout>

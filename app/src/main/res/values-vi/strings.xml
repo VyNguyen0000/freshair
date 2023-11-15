@@ -7,5 +7,10 @@
     <string name="reset_your_password">ĐỔI MẬT KHẨU</string>
     <string name="user_name">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
+    <string name="loading">Đang xử lý</string>
     <string name="repassword">Xác nhận mật khẩu</string>
+    <string name="save_account">Lưu thông tin đăng nhập</string>
+
+
+
 </resources>

@@ -54,6 +54,9 @@
     <string name="user_name">YOUR NAME</string>
     <string name="password">PASSWORD</string>
     <string name="repassword">REPASSWORD</string>
+    <string name="loading">LOADING</string>
+    <string name="save_account" translatable="false">SAVE USERNAME AND PASSWORD</string>
+
 
 
 

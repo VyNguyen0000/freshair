@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Final</string>
+    <string name="sign_in">ĐĂNG NHẬP</string>
+    <string name="sign_up">ĐĂNG KÝ</string>
+    <string name="continue_with_google">TIẾP TỤC VỚI GOOGLE</string>
+    <string name="reset_your_password">ĐỔI MẬT KHẨU</string>
+    <string name="user_name">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="repassword">Xác nhận mật khẩu</string>
+</resources>

@@ -80,7 +80,6 @@ public class Home extends AppCompatActivity {
 
         });
         AlertDialog mDialog = mBuilder.create();
-        //show alert dialog
         mDialog.show();
     }
 

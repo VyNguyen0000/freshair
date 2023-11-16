@@ -51,9 +51,9 @@
     <string name="sign_up">SIGN UP</string>
     <string name="continue_with_google">CONTINUE WITH GOOGLE</string>
     <string name="reset_your_password">RESET YOUR PASSWORD</string>
-    <string name="user_name">YOUR NAME</string>
-    <string name="password">PASSWORD</string>
-    <string name="repassword">REPASSWORD</string>
+    <string name="user_name">Username</string>
+    <string name="password">Password</string>
+    <string name="repassword">Repassword</string>
     <string name="loading">LOADING</string>
     <string name="save_account" translatable="false">SAVE USERNAME AND PASSWORD</string>
 

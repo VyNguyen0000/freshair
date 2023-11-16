@@ -142,7 +142,8 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:text="@string/save_account" />
+                android:text="@string/save_account"
+                android:textColor="#FFFFFF"/>
 
         </RelativeLayout>
     </RelativeLayout>

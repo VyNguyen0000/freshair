@@ -30,7 +30,7 @@ public class Home extends AppCompatActivity {
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(a=="")
+                if (a.equals(""))
                 {
                     Intent intent = new Intent(Home.this, Signin.class);
                 startActivity(intent);

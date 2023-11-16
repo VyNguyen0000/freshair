@@ -56,7 +56,8 @@
     <string name="repassword">Repassword</string>
     <string name="loading">LOADING</string>
     <string name="save_account" translatable="false">SAVE USERNAME AND PASSWORD</string>
-
+    <string name="logout">LOG OUT</string>
+    <string name="back">BACK</string>
 
 
 

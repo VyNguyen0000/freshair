@@ -3,10 +3,8 @@ package com.example.afinal;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,12 +15,10 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.example.afinal.api.ApiClient;
-import com.example.afinal.api.ApiService;
+import com.example.afinal.api.CallToken;
 import com.example.afinal.model.RequestModel;
 import com.example.afinal.model.ResponseModel;
 
@@ -67,7 +63,7 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 //                call khi đúng cú pháp
                 if (canRegister() == true) {
-                    ApiService apiService = ApiClient.createService();
+                    CallToken apiService = ApiClient.createService();
                     RequestModel requestModel = new RequestModel(user.getText().toString(), pwd.getText().toString());
                     Call<ResponseModel> call = apiService.sendRequest(
                             "password",

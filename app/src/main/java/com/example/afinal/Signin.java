@@ -9,16 +9,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.webkit.CookieManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.afinal.api.ApiClient;
-import com.example.afinal.api.ApiService;
+import com.example.afinal.api.CallToken;
 import com.example.afinal.model.RequestModel;
 import com.example.afinal.model.ResponseModel;
 
@@ -55,7 +51,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(canSignIn() == true) {
-                    ApiService apiService= ApiClient.createService();
+                    CallToken apiService= ApiClient.createService();
                     RequestModel requestModel = new RequestModel(user.getText().toString(), pwd.getText().toString());
                     Call<ResponseModel> call = apiService.sendRequest(
                             "password",

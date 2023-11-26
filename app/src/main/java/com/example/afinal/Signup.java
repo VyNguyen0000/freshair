@@ -63,7 +63,7 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 //                call khi đúng cú pháp
                 if (canRegister() == true) {
-                    CallToken apiService = ApiClient.createService();
+                    CallToken apiService = ApiClient.CreateCallToken();
                     RequestModel requestModel = new RequestModel(user.getText().toString(), pwd.getText().toString());
                     Call<ResponseModel> call = apiService.sendRequest(
                             "password",

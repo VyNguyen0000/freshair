@@ -51,7 +51,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(canSignIn() == true) {
-                    CallToken apiService= ApiClient.createService();
+                    CallToken apiService= ApiClient.CreateCallToken();
                     RequestModel requestModel = new RequestModel(user.getText().toString(), pwd.getText().toString());
                     Call<ResponseModel> call = apiService.sendRequest(
                             "password",

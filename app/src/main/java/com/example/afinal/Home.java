@@ -12,11 +12,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.afinal.model.User;
+
 import java.util.Locale;
 
 public class Home extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-
+    User user = new User();
     String a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +28,19 @@ public class Home extends AppCompatActivity {
         //change actionbar tilte
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
         Button btnSignin = findViewById(R.id.btnSign);
-        a= sharedPreferences.getString("username","");
+        a = sharedPreferences.getString("username","");
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (a.equals(""))
                 {
                     Intent intent = new Intent(Home.this, Signin.class);
-                startActivity(intent);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
                 }
                 else {
                     Intent intent = new Intent(Home.this, Dashboard.class);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                 }
             }
@@ -46,6 +50,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Signup.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });

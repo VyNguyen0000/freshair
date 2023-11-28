@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.afinal.model.User;
 
 public class Dashboard extends AppCompatActivity {
     Button btnBack, btnLogout;
     SharedPreferences sharedPreferences;
-
+    TextView textView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,12 @@ public class Dashboard extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
         btnBack = findViewById(R.id.btnBack);
         btnLogout = findViewById(R.id.btn_logOut);
+        textView = findViewById(R.id.text);
 
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
+
+        textView.setText(user.getUsername());
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

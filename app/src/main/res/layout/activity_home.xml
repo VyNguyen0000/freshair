@@ -82,17 +82,4 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="305dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/reset_your_password"
-        android:backgroundTint="@color/background4"
-        android:alpha="0.5"
-        android:textColor="@color/grey"
-        android:textSize="20sp"
-        android:textStyle="italic" />
-
 </RelativeLayout>

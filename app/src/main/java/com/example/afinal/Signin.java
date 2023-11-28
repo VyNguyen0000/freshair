@@ -9,14 +9,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.afinal.api.ApiClient;
 import com.example.afinal.api.CallToken;
-import com.example.afinal.model.RequestModel;
-import com.example.afinal.model.ResponseModel;
+import com.example.afinal.model.TokenResponse;
+import com.example.afinal.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +25,8 @@ import retrofit2.Response;
 
 public class Signin extends AppCompatActivity {
     ImageButton backHomeBtn, signInBtn;
-    EditText user, pwd;
+    EditText username_editText, pwd_editText;
+    Button btn_resetPwd;
     CheckBox cbRemember;
     SharedPreferences sharedPreferences;
     @Override
@@ -32,18 +34,31 @@ public class Signin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
+        btn_resetPwd = findViewById(R.id.btnReset);
         backHomeBtn = findViewById(R.id.homeBtn);
         signInBtn = findViewById(R.id.sign_in_btn);
-        user = findViewById(R.id.edit_text_name);
-        pwd = findViewById(R.id.edit_text_password);
+        username_editText = findViewById(R.id.edit_text_name);
+        pwd_editText = findViewById(R.id.edit_text_password);
         cbRemember = findViewById(R.id.cbRemember);
-        user.setText(sharedPreferences.getString("username",""));
-        pwd.setText(sharedPreferences.getString("password",""));
+        username_editText.setText(sharedPreferences.getString("username",""));
+        pwd_editText.setText(sharedPreferences.getString("password",""));
         cbRemember.setChecked(sharedPreferences.getBoolean("checked",false));
+
+
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
         backHomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Signin.this, Home.class);
+                startActivity(intent);
+            }
+        });
+        btn_resetPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Signin.this, Repwd.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
@@ -52,20 +67,22 @@ public class Signin extends AppCompatActivity {
             public void onClick(View v) {
                 if(canSignIn() == true) {
                     CallToken apiService= ApiClient.CreateCallToken();
-                    RequestModel requestModel = new RequestModel(user.getText().toString(), pwd.getText().toString());
-                    Call<ResponseModel> call = apiService.sendRequest(
-                            "password",
-                            "openremote",
-                            requestModel.getUsername(),
-                            requestModel.getPassword()
+                    user.setUsername(username_editText.getText().toString());
+                    user.setPassword(pwd_editText.getText().toString());
+                    Call<TokenResponse> call = apiService.sendRequest(
+                        "password",
+                        "openremote",
+                        user.getUsername(),
+                        user.getPassword()
                     );
-                    call.enqueue(new Callback<ResponseModel>() {
+                    call.enqueue(new Callback<TokenResponse>() {
                         @Override
-                        public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                            String username=user.getText().toString().trim();
-                            String password=pwd.getText().toString().trim();
+                        public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
+                            String username=username_editText.getText().toString().trim();
+                            String password=pwd_editText.getText().toString().trim();
                             if (response.body() != null) {
                                 Intent intent = new Intent(Signin.this, Dashboard.class);
+                                intent.putExtra("user", user);
                                 startActivity(intent);
                                 if (cbRemember.isChecked()) {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -80,7 +97,7 @@ public class Signin extends AppCompatActivity {
                             }
                         }
                         @Override
-                        public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        public void onFailure(Call<TokenResponse> call, Throwable t) {
                             Log.d("response call", t.getMessage().toString());
                         }
                     });
@@ -97,11 +114,11 @@ public class Signin extends AppCompatActivity {
     }
 
     private boolean checkUser() {
-        if(user.getText().toString().equals("")) return false;
+        if(username_editText.getText().toString().equals("")) return false;
         return true;
     }
     private boolean checkPwd() {
-        if(pwd.getText().toString().equals("")) return false;
+        if(pwd_editText.getText().toString().equals("")) return false;
         return true;
     }
     private boolean canSignIn() {
@@ -112,12 +129,12 @@ public class Signin extends AppCompatActivity {
     private void showAlert(String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Signin.this);
         builder.setTitle("Error")
-                .setMessage(text)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
+            .setMessage(text)
+            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
         AlertDialog dialog = builder.create();
         dialog.show();
     }

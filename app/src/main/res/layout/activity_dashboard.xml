@@ -8,8 +8,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-
-
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
@@ -17,7 +15,6 @@
             android:text="Dashboard"
             android:textAlignment="center"
             android:textSize="50sp" />
-
         <Button
             android:id="@+id/btn_logOut"
             android:layout_width="wrap_content"
@@ -27,7 +24,6 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="235dp"
             android:text="@string/logout" />
-
         <Button
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
@@ -36,7 +32,6 @@
             android:layout_above="@id/btn_logOut"
             android:layout_marginBottom="-200dp"
             android:text="@string/back" />
-
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

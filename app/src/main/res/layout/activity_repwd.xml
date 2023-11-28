@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signin">
+    tools:context=".Signup">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,34 +13,35 @@
             android:id="@+id/cloudImg"
             android:layout_width="match_parent"
             android:layout_height="210dp"
-            android:alpha="0.7"
-            android:src="@drawable/cloud"></ImageView>
+            android:src="@drawable/cloud"
+            android:alpha="0.6"></ImageView>
 
         <TextView
             android:id="@+id/freshair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="120dp"
             android:alpha="0.8"
             android:fontFamily="@font/bungeer"
-            android:text="@string/sign_in"
+            android:text="@string/repassword"
             android:layout_centerHorizontal="true"
             android:textColor="@color/babypurple"
-            android:textSize="60sp"
+            android:textAlignment="center"
+            android:textSize="46sp"
             android:layout_gravity="center"
-          />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/houseImg"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/cloudImg"
-            android:alpha="0.35"
-            android:src="@drawable/house">
+            android:src="@drawable/house"
+            android:alpha="0.35">
         </ImageView>
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_alignParentRight="true"
@@ -54,7 +54,7 @@
             android:background="@drawable/gradient_background"
             >
             <ImageButton
-                android:id="@+id/homeBtn"
+                android:id="@+id/backBtn"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
                 android:background="@drawable/btn_image"
@@ -64,7 +64,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="20dp"/>
             <ImageButton
-                android:id="@+id/sign_in_btn"
+                android:id="@+id/resetBtn"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
                 android:background="@drawable/btn_image"
@@ -99,6 +99,7 @@
                     android:hint="@string/user_name"
                     android:layout_marginLeft="30dp"
                     />
+
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/password_input"
@@ -114,7 +115,8 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/password" />
+                    android:src="@drawable/password"
+                    />
                 <EditText
                     android:id="@+id/edit_text_password"
                     android:layout_width="match_parent"
@@ -122,30 +124,39 @@
                     android:ems="10"
                     android:inputType="textPassword"
                     android:hint="@string/password"
-                    android:layout_marginLeft="30dp" />
+                    android:layout_marginLeft="30dp"
+                    />
             </RelativeLayout>
-
-            <CheckBox
-                android:id="@+id/cbRemember"
-                android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_height="wrap_content"
-                android:text="@string/save_account"
-                android:textColor="#FFFFFF"/>
-            <Button
-                android:id="@+id/btnReset"
-                android:layout_width="305dp"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/cbRemember"
-                android:layout_marginTop="10dp"
-                android:text="@string/reset_your_password"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="italic" />
-
+            <RelativeLayout
+                android:id="@+id/confirm_password_input"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/password_input"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/password"
+                    />
+                <EditText
+                    android:id="@+id/edit_text_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="@string/repassword"
+                    android:layout_marginLeft="30dp"
+                    />
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

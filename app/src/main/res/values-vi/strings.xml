@@ -8,7 +8,7 @@
     <string name="user_name">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
     <string name="loading">Đang xử lý</string>
-    <string name="repassword">Xác nhận mật khẩu</string>
+    <string name="repassword">Đổi mật khẩu</string>
     <string name="save_account">LƯU THÔNG TIN ĐĂNG NHẬP</string>
     <string name="back">MÀN HÌNH CHÍNH</string>
     <string name="logout">ĐĂNG XUẤT</string>

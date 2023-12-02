@@ -4,12 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.afinal.api.ApiClient;
+import com.example.afinal.api.CallToken;
+import com.example.afinal.model.TokenResponse;
 import com.example.afinal.model.User;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Repwd extends AppCompatActivity {
     WebView webview;
@@ -34,15 +44,15 @@ public class Repwd extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Repwd.this, Signin.class);
+                Intent intent = new Intent(Repwd.this, Home.class);
                 startActivity(intent);
             }
         });
+
         reset_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Repwd.this, Signin.class);
-                startActivity(intent);
+
             }
         });
     }

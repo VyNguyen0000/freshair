@@ -46,7 +46,7 @@
         android:src="@drawable/house" />
 
     <Button
-        android:id="@+id/btnSign"
+        android:id="@+id/btnSignIn"
         android:layout_width="305dp"
         android:layout_height="60dp"
         android:text="@string/sign_in"
@@ -63,23 +63,25 @@
         android:layout_width="305dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/btnSignIn"
         android:text="@string/sign_up"
         android:textStyle="bold"
         android:textSize="22sp"
         android:backgroundTint="@color/babypurple"
         android:textColor="@color/purple" />
-
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnReset"
         android:layout_width="305dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="570dp"
-        android:text="@string/continue_with_google"
-        android:textColor="@color/purple"
+        android:layout_below="@+id/btnSignUp"
+        android:layout_marginTop="10dp"
+        android:text="@string/reset_your_password"
         android:backgroundTint="@color/babypurple"
+        android:textColor="@color/purple"
         android:textSize="20sp"
         android:textStyle="bold" />
+
 
 </RelativeLayout>

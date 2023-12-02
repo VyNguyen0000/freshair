@@ -26,9 +26,6 @@ public class TokenResponse {
     @SerializedName("scope")
     private String scope;
 
-    // Đảm bảo cung cấp các phương thức getter và setter cho các trường trong lớp model này
-    // Cũng cần thêm constructors, equals, hashCode và toString nếu cần thiết.
-
     // Ví dụ:
     public String getAccessToken() {
         return this.accessToken;

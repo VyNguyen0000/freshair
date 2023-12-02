@@ -133,19 +133,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/save_account"
                 android:textColor="#FFFFFF"/>
-            <Button
-                android:id="@+id/btnReset"
-                android:layout_width="305dp"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/cbRemember"
-                android:layout_marginTop="10dp"
-                android:text="@string/reset_your_password"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="italic" />
-
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

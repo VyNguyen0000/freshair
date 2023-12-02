@@ -16,9 +16,9 @@ public class ApiClient {
     }
     public static CallResetPwd getClient() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
         return retrofit.create(CallResetPwd.class);
     }
 }

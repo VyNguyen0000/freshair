@@ -34,7 +34,6 @@ public class Signin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
-        btn_resetPwd = findViewById(R.id.btnReset);
         backHomeBtn = findViewById(R.id.homeBtn);
         signInBtn = findViewById(R.id.sign_in_btn);
         username_editText = findViewById(R.id.edit_text_name);
@@ -51,13 +50,6 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Signin.this, Home.class);
-                startActivity(intent);
-            }
-        });
-        btn_resetPwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Signin.this, Repwd.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
             }
@@ -81,14 +73,18 @@ public class Signin extends AppCompatActivity {
                             String username=username_editText.getText().toString().trim();
                             String password=pwd_editText.getText().toString().trim();
                             if (response.body() != null) {
+                                Log.d("lỗi" ,"a");
+
                                 Intent intent = new Intent(Signin.this, Dashboard.class);
                                 intent.putExtra("user", user);
                                 startActivity(intent);
                                 if (cbRemember.isChecked()) {
+                                    Log.d("lỗi" ,"b");
+
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("username", username);
                                     editor.putString("password", password);
-                                    editor.putBoolean("checked",true);
+                                    editor.putBoolean("checked", true);
                                     editor.commit();
                                 }
                             }

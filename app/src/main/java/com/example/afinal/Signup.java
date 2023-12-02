@@ -72,10 +72,10 @@ public class Signup extends AppCompatActivity {
                     user.setPassword(pwd.getText().toString());
                     user.setEmail(email.getText().toString());
                     Call<TokenResponse> call = apiService.sendRequest(
-                            "password",
-                            "openremote",
-                            user.getUsername(),
-                            user.getPassword()
+                        "password",
+                        "openremote",
+                        user.getUsername(),
+                        user.getPassword()
                     );
                     call.enqueue(new Callback<TokenResponse>() {
                         @Override

@@ -20,15 +20,21 @@ public class Home extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     User user = new User();
     String a;
+    Button btn_resetPwd, btnSignin, btnSignUp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_home);
-        //change actionbar tilte
+        btn_resetPwd = findViewById(R.id.btnReset);
+        btnSignin = findViewById(R.id.btnSignIn);
+        btnSignUp = findViewById(R.id.btnSignUp);
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
-        Button btnSignin = findViewById(R.id.btnSign);
         a = sharedPreferences.getString("username","");
+
+        Intent intent = getIntent();
+        user = (User) intent.getSerializableExtra("user");
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +51,6 @@ public class Home extends AppCompatActivity {
                 }
             }
         });
-        Button btnSignUp = findViewById(R.id.btnSignUp);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +65,14 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
                 //show AlertDialog to display list of language, one can be selected
                 showChangeLanguageDialog();
+            }
+        });
+        btn_resetPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Repwd.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
             }
         });
     }

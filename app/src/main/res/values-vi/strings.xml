@@ -6,13 +6,14 @@
     <string name="continue_with_google">TIẾP TỤC VỚI GOOGLE</string>
     <string name="reset_your_password">ĐỔI MẬT KHẨU</string>
     <string name="user_name">Tên đăng nhập</string>
+    <string name="old_pass">Mật khẩu cũ</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
     <string name="password">Mật khẩu</string>
     <string name="loading">Đang xử lý</string>
     <string name="repassword">Đổi mật khẩu</string>
     <string name="save_account">LƯU THÔNG TIN ĐĂNG NHẬP</string>
     <string name="back">MÀN HÌNH CHÍNH</string>
     <string name="logout">ĐĂNG XUẤT</string>
-
-
 
 </resources>

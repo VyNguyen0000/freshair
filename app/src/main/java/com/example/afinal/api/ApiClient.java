@@ -7,19 +7,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     private static final String BASE_URL = "https://uiot.ixxc.dev";
 
-    public static CallToken CreateCallToken() {
+    public static CallToken CallToken() {
         Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
         return retrofit.create(CallToken.class);
     }
-    public static CallResetPwd getClient() {
+    public static CallResetPwd CallRePwd() {
         Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
         return retrofit.create(CallResetPwd.class);
+    }
+    public static CallUserId CallUserId() {
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        return retrofit.create(CallUserId.class);
     }
 }
 

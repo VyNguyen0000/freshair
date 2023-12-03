@@ -52,6 +52,9 @@
     <string name="continue_with_google">CONTINUE WITH GOOGLE</string>
     <string name="reset_your_password">RESET YOUR PASSWORD</string>
     <string name="user_name">Username</string>
+    <string name="old_pass">Old password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
     <string name="password">Password</string>
     <string name="repassword">Repassword</string>
     <string name="loading">LOADING</string>

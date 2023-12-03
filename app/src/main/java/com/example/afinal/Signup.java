@@ -67,7 +67,7 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 //                call khi đúng cú pháp
                 if (canRegister() == true) {
-                    CallToken apiService = ApiClient.CreateCallToken();
+                    CallToken apiService = ApiClient.CallToken();
                     user.setUsername(user_editText.getText().toString());
                     user.setPassword(pwd.getText().toString());
                     user.setEmail(email.getText().toString());
@@ -199,7 +199,6 @@ public class Signup extends AppCompatActivity {
                 }
             }
         });
-
     }
 }
 

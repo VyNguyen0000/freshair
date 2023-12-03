@@ -29,6 +29,7 @@ public class Signin extends AppCompatActivity {
     Button btn_resetPwd;
     CheckBox cbRemember;
     SharedPreferences sharedPreferences;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class Signin extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("user");
+        user = (User) intent.getSerializableExtra("user");
         backHomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +59,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(canSignIn() == true) {
-                    CallToken apiService= ApiClient.CreateCallToken();
+                    CallToken apiService= ApiClient.CallToken();
                     user.setUsername(username_editText.getText().toString());
                     user.setPassword(pwd_editText.getText().toString());
                     Call<TokenResponse> call = apiService.sendRequest(
@@ -67,6 +68,8 @@ public class Signin extends AppCompatActivity {
                         user.getUsername(),
                         user.getPassword()
                     );
+                    Log.d("lỗi" ,"b");
+
                     call.enqueue(new Callback<TokenResponse>() {
                         @Override
                         public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
@@ -97,7 +100,8 @@ public class Signin extends AppCompatActivity {
                             Log.d("response call", t.getMessage().toString());
                         }
                     });
-                }else {
+                }
+                else {
                     if(checkUser() == false) {
                         showAlert("Please fill username");
                     }

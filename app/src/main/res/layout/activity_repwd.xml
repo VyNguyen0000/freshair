@@ -102,10 +102,37 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/old_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/name_input"
+                android:background="@drawable/edit_text"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/password"
+                    />
+                <EditText
+                    android:id="@+id/edit_oldPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="@string/old_pass"
+                    android:layout_marginLeft="30dp"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
                 android:id="@+id/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/name_input"
+                android:layout_below="@+id/old_pwd"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
@@ -118,12 +145,12 @@
                     android:src="@drawable/password"
                     />
                 <EditText
-                    android:id="@+id/edit_text_password"
+                    android:id="@+id/edit_new_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:ems="10"
                     android:inputType="textPassword"
-                    android:hint="@string/password"
+                    android:hint="@string/new_password"
                     android:layout_marginLeft="30dp"
                     />
             </RelativeLayout>
@@ -144,12 +171,12 @@
                     android:src="@drawable/password"
                     />
                 <EditText
-                    android:id="@+id/edit_text_confirm_password"
+                    android:id="@+id/edit_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:ems="10"
                     android:inputType="textPassword"
-                    android:hint="@string/repassword"
+                    android:hint="@string/confirm_password"
                     android:layout_marginLeft="30dp"
                     />
             </RelativeLayout>
@@ -159,4 +186,39 @@
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <RelativeLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="@drawable/gradient"
+        tools:context=".splashScreen">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_below="@+id/house"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:layout_marginTop="130dp"
+            android:fontFamily="@font/bungeer"
+            android:text="@string/loading"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/babypurple"
+            android:textSize="45sp"
+            android:layout_gravity="center" />
+        <ImageView
+            android:id="@+id/house"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/house" />
+    </RelativeLayout>
 </RelativeLayout>

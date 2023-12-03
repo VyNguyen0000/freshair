@@ -58,8 +58,9 @@ public class Dashboard extends AppCompatActivity {
                 editor.putString("username", "");
                 editor.putString("password", "");
                 editor.commit();
-                Intent intent = new Intent(Dashboard.this, Home.class);
 
+
+                Intent intent = new Intent(Dashboard.this, Home.class);
                 startActivity(intent);
             }
 
@@ -67,7 +68,7 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private void callToken(User user) {
-        CallToken apiService = ApiClient.CreateCallToken();
+        CallToken apiService = ApiClient.CallToken();
         Call<TokenResponse> call = apiService.sendRequest(
             "password",
             "openremote",

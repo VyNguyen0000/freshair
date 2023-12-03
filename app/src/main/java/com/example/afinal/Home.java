@@ -33,8 +33,7 @@ public class Home extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
         a = sharedPreferences.getString("username","");
 
-        Intent intent = getIntent();
-        user = (User) intent.getSerializableExtra("user");
+
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -28,6 +28,13 @@ public class ApiClient {
             .build();
         return retrofit.create(CallUserId.class);
     }
+    public static CallMap CallMap() {
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        return retrofit.create(CallMap.class);
+    }
 }
 
 

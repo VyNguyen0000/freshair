@@ -78,7 +78,7 @@ public class Signin extends AppCompatActivity {
                             if (response.body() != null) {
                                 Log.d("lỗi" ,"a");
 
-                                Intent intent = new Intent(Signin.this, Dashboard.class);
+                                Intent intent = new Intent(Signin.this, MapScreen.class);
                                 intent.putExtra("user", user);
                                 startActivity(intent);
                                 if (cbRemember.isChecked()) {

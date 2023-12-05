@@ -193,7 +193,7 @@ public class Signup extends AppCompatActivity {
                 }
                 if (url.contains("manager") && temp == true) {
                     Log.d("finished - yess", "complete");
-                    Intent intent = new Intent(Signup.this, Dashboard.class);
+                    Intent intent = new Intent(Signup.this, MapScreen.class);
                     intent.putExtra("user", user);
                     startActivity(intent);
                 }

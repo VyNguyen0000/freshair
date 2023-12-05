@@ -24,26 +24,28 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Dashboard extends AppCompatActivity {
-    Button btnBack, btnLogout;
+    Button btnHome, btnLogout, btnGraph, btnMap;
     SharedPreferences sharedPreferences;
-    TextView textView;
+    TextView helloText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         sharedPreferences = getSharedPreferences("dataSignin",MODE_PRIVATE);
-        btnBack = findViewById(R.id.btnBack);
-        btnLogout = findViewById(R.id.btn_logOut);
-        textView = findViewById(R.id.text);
+        btnHome = findViewById(R.id.btn_home);
+        btnLogout = findViewById(R.id.btn_logout);
+        btnGraph = findViewById(R.id.btn_graph);
+        btnMap = findViewById(R.id.btn_map);
+        helloText = findViewById(R.id.account);
 
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("user");
 
         callToken(user);
 
-        textView.setText(user.getUsername());
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        helloText.setText("Hello, " + user.getUsername());
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Dashboard.this, Home.class);
@@ -51,6 +53,22 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, MapScreen.class);
+                startActivity(intent);
+            }
+        });
+        btnGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, Graph.class);
+                startActivity(intent);
+            }
+        });
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,8 +76,6 @@ public class Dashboard extends AppCompatActivity {
                 editor.putString("username", "");
                 editor.putString("password", "");
                 editor.commit();
-
-
                 Intent intent = new Intent(Dashboard.this, Home.class);
                 startActivity(intent);
             }

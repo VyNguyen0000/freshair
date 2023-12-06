@@ -15,5 +15,8 @@
     <string name="save_account">LƯU THÔNG TIN ĐĂNG NHẬP</string>
     <string name="back">MÀN HÌNH CHÍNH</string>
     <string name="logout">ĐĂNG XUẤT</string>
-
+    <string name="show">Hiện</string>
+    <string name="attribute">Thuộc tính</string>
+    <string name="timeframe">Khung thời gian</string>
+    <string name="ending">Kết thúc</string>
 </resources>

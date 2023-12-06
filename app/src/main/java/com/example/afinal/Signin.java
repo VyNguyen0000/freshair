@@ -76,7 +76,7 @@ public class Signin extends AppCompatActivity {
                             String username=username_editText.getText().toString().trim();
                             String password=pwd_editText.getText().toString().trim();
                             if (response.body() != null) {
-                                Log.d("lỗi" ,"a");
+                                Log.d("lỗi" , "com/example/afinal/Adapter");
 
                                 Intent intent = new Intent(Signin.this, MapScreen.class);
                                 intent.putExtra("user", user);

@@ -61,5 +61,9 @@
     <string name="save_account" translatable="false">SAVE USERNAME AND PASSWORD</string>
     <string name="logout">LOG OUT</string>
     <string name="back">BACK</string>
+    <string name="show">SHOW</string>
+    <string name="attribute">Attribute</string>
+    <string name="timeframe">Timeframe</string>
+    <string name="ending">Ending</string>
 
 </resources>

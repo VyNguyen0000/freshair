@@ -39,7 +39,7 @@
             android:name=".Repwd"
             android:exported="false" />
         <activity
-            android:name=".Graph"
+            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".Dashboard"
@@ -51,7 +51,7 @@
             android:name=".Signup"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".Graph"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

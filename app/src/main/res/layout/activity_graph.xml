@@ -139,6 +139,7 @@
         android:background="@color/white">
 
         <Button
+            android:id="@+id/btn_home"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -148,6 +149,7 @@
             android:textColor="@color/black"/>
 
         <Button
+            android:id="@+id/btn_map"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -166,6 +168,7 @@
             android:textColor="@color/black"/>
 
         <Button
+            android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

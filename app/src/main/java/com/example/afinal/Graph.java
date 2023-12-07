@@ -2,13 +2,17 @@ package com.example.afinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.afinal.Adapter.SpinnerAdapter;
+import com.example.afinal.model.User;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -22,8 +26,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Graph extends AppCompatActivity {
 
+public class Graph extends AppCompatActivity {
+    Button btn_home, btn_map, btn_logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,43 @@ public class Graph extends AppCompatActivity {
         Spinner timeFrameSpinner = findViewById(R.id.spinner_timeframe);
         LineChart lineChart = findViewById(R.id.chart);
 
+        btn_home = findViewById(R.id.btn_home);
+        btn_map = findViewById(R.id.btn_map);
+        btn_logout = findViewById(R.id.btn_logout);
+
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
+        User userCallApi = (User) intent.getSerializableExtra("userAPI");
+
+        btn_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Graph.this, MapScreen.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Graph.this, Dashboard.class);
+                intent.putExtra("user", user);
+                intent.putExtra("userAPI", userCallApi);
+                startActivity(intent);
+            }
+        });
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username", "");
+                editor.putString("password", "");
+                editor.commit();
+                Intent intent = new Intent(Graph.this, Home.class);
+                startActivity(intent);
+            }
+        });
 
         List<String> data = Arrays.asList("Item 1", "Item 2", "Item 3");
         List<String> timeFrameData = Arrays.asList("Day", "Month", "Year");

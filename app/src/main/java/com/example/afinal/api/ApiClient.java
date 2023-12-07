@@ -35,6 +35,13 @@ public class ApiClient {
             .build();
         return retrofit.create(CallMap.class);
     }
+    public static CallWeather CallWeather() {
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        return retrofit.create(CallWeather.class);
+    }
 }
 
 

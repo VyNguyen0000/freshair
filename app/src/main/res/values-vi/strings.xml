@@ -19,4 +19,14 @@
     <string name="attribute">Thuộc tính</string>
     <string name="timeframe">Khung thời gian</string>
     <string name="ending">Kết thúc</string>
+    <string name="welcome">Chào mừng bạn đến với FreshAir</string>
+    <string name="exist">Tài khoản đã tồn tại</string>
+    <string name="fill1">Vui lòng điền tên tài khoản</string>
+    <string name="fill2">Vui lòng điền email</string>
+    <string name="e">Email không tồn tại</string>
+    <string name="pwd">Mật khẩu không trùng khớp</string>
+    <string name="invalid">Tài khoản không tồn tại </string>
+    <string name="fill3">Vui lòng nhập mật khẩu</string>
+    <string name="hello">Xin chào,</string>
+
 </resources>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.example.afinal.api.ApiClient;
 import com.example.afinal.api.CallToken;
 import com.example.afinal.model.TokenResponse;
 import com.example.afinal.model.User;
+
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,6 +56,14 @@ public class Signin extends AppCompatActivity {
                 Intent intent = new Intent(Signin.this, Home.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
+            }
+        });
+        Button changeLang = findViewById(R.id.changeMyLang);
+        changeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //show AlertDialog to display list of language, one can be selected
+                showChangeLanguageDialog();
             }
         });
         signInBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +103,7 @@ public class Signin extends AppCompatActivity {
                                 }
                             }
                             else {
-                                showAlert("Invalid username or password");
+                                showAlert(getResources().getString(R.string.invalid));
                             }
                         }
                         @Override
@@ -103,10 +114,10 @@ public class Signin extends AppCompatActivity {
                 }
                 else {
                     if(checkUser() == false) {
-                        showAlert("Please fill username");
+                        showAlert(getResources().getString(R.string.fill1));
                     }
                     else if(checkPwd() == false) {
-                        showAlert("Please fill password");
+                        showAlert(getResources().getString(R.string.fill3));
                     }
                 }
             }
@@ -137,5 +148,48 @@ public class Signin extends AppCompatActivity {
             });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+    private void showChangeLanguageDialog() {
+        //array of language to display in alert dialog
+        final String[] listItems = {getString(R.string.lang_vietnamese), getString(R.string.lang_english)};
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(Signin.this);
+        mBuilder.setTitle("Choose Language");
+        mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (i == 0) {
+                    //English
+                    setLocale("VI");
+                    recreate();
+                } else if (i == 1) {
+                    setLocale("EN");
+                    recreate();
+                }
+
+            }
+
+        });
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        // Lưu ngôn ngữ vào SharedPreferences
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", lang);
+        editor.apply();
+    }
+
+    //load language saved in shared prpubliceferences
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("Settings",MODE_PRIVATE);
+        String language = prefs.getString("My_Lang"," ");
+        setLocale(language);
     }
 }

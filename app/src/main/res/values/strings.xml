@@ -65,5 +65,20 @@
     <string name="attribute">Attribute</string>
     <string name="timeframe">Timeframe</string>
     <string name="ending">Ending</string>
+    <string name="welcome">Welcome to your Home</string>
+    <string name="exist">Username already exists</string>
+    <string name="fill1">Please fill username</string>
+    <string name="fill2">Please fill email</string>
+    <string name="e">Email does not exist</string>
+    <string name="pwd">Password confirmation does not match</string>
+    <string name="invalid">Invalid username or password</string>
+    <string name="fill3">Please fill password</string>
+    <string name="hello">Hello,</string>
+
+
+
+
+    Invalid username or password
+
 
 </resources>

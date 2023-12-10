@@ -1,9 +1,12 @@
 package com.example.afinal;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +32,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -106,7 +110,10 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        helloText.setText("Hello, " + user.getUsername());
+        String hello = getResources().getString(R.string.hello);
+
+
+        helloText.setText(hello +" " + sharedPreferences.getString("username",""));
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +121,14 @@ public class Dashboard extends AppCompatActivity {
                 Intent intent = new Intent(Dashboard.this, MapScreen.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
+            }
+        });
+        Button changeLang = findViewById(R.id.changeMyLang);
+        changeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //show AlertDialog to display list of language, one can be selected
+                showChangeLanguageDialog();
             }
         });
         btnGraph.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +196,51 @@ public class Dashboard extends AppCompatActivity {
         // Trả về chuỗi thời gian đã định dạng
         return sdf.format(date);
     }
+    private void showChangeLanguageDialog() {
+        //array of language to display in alert dialog
+        final String[] listItems = {getString(R.string.lang_vietnamese), getString(R.string.lang_english)};
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(Dashboard.this);
+        mBuilder.setTitle("Choose Language");
+        mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (i == 0) {
+                    //English
+                    setLocale("VI");
+                    recreate();
+                } else if (i == 1) {
+                    setLocale("EN");
+                    recreate();
+                }
+
+            }
+
+        });
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        // Lưu ngôn ngữ vào SharedPreferences
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", lang);
+        editor.apply();
+    }
+
+    //load language saved in shared prpubliceferences
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("Settings",MODE_PRIVATE);
+        String language = prefs.getString("My_Lang"," ");
+        setLocale(language);
+    }
 }
+
 
 
 

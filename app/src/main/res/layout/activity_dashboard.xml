@@ -24,7 +24,7 @@
             android:id="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to your Home"
+            android:text="@string/welcome"
             android:textSize="20dp"
             android:layout_marginLeft="30dp"
             android:textColor="@color/white"/>
@@ -36,20 +36,14 @@
             android:alpha="0.35"
             android:src="@drawable/house">
         </ImageView>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/menu">
-        </ImageView>
+
+
         <ImageView
             android:id="@+id/cloudImg"
             android:layout_width="match_parent"
             android:layout_height="210dp"
-            android:src="@drawable/cloud"
-            android:alpha="0.7"></ImageView>
+            android:alpha="0.7"
+            android:src="@drawable/cloud"></ImageView>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -307,6 +301,19 @@
                 android:text="Log out"
                 android:textColor="@color/black" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/changeMyLang"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/menu"
+            android:backgroundTint="#FFFFFF" />
     </RelativeLayout>
 </RelativeLayout>
 

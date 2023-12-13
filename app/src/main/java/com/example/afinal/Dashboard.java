@@ -151,7 +151,6 @@ public class Dashboard extends AppCompatActivity {
                 Intent intent = new Intent(Dashboard.this, Home.class);
                 startActivity(intent);
             }
-
         });
     }
     private void setAttributeValues(WeatherResponse weatherResponse) {

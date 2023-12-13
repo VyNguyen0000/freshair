@@ -65,7 +65,7 @@
     <string name="attribute">Attribute</string>
     <string name="timeframe">Timeframe</string>
     <string name="ending">Ending</string>
-    <string name="welcome">Welcome to your Home</string>
+    <string name="welcome">Homepage</string>
     <string name="exist">Username already exists</string>
     <string name="fill1">Please fill username</string>
     <string name="fill2">Please fill email</string>

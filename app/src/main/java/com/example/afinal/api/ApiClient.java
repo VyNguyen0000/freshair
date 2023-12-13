@@ -42,6 +42,13 @@ public class ApiClient {
             .build();
         return retrofit.create(CallWeather.class);
     }
+    public static CallGraph CallGraph() {
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+        return retrofit.create(CallGraph.class);
+    }
 }
 
 

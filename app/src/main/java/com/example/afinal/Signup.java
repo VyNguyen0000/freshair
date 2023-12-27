@@ -123,9 +123,9 @@ public class Signup extends AppCompatActivity {
                     } else if (isValidEmail() == false) {
                         showAlert(getResources().getString(R.string.e));
                     } else if (checkPwd() == false) {
-                        showAlert(getResources().getString(R.string.fill3));
-                    } else if (checkRePwd() == false) {
                         showAlert(getResources().getString(R.string.pwd));
+                    } else if (checkRePwd() == false) {
+                        showAlert(getResources().getString(R.string.fill3));
                     }
                 }
             }

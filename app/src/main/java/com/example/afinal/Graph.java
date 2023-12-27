@@ -126,7 +126,8 @@ public class Graph extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String attribute = attributeSpinner.getSelectedItem().toString().substring(0, 1).toLowerCase() + attributeSpinner.getSelectedItem().toString().substring(1);
+                String attribute = attributeSpinner.getSelectedItem().toString().substring(0, 1).toLowerCase() +
+                        attributeSpinner.getSelectedItem().toString().substring(1);
                 String timeframe = timeFrameSpinner.getSelectedItem().toString();
                 Date endTime = formatStringtoDate(editTextDateTime.getText().toString());
                 Date beginTime = handleBeginTime(endTime, timeframe);
